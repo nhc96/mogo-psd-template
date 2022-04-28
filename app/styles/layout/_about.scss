@@ -1,0 +1,106 @@
+.about {
+  padding-top: 9rem;
+  padding-bottom: 11rem;
+  background-color: white;
+
+  // Flexbox
+  // &-list {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   margin-left: -3rem;
+  // }
+  // &-item {
+  //   width: calc((100% / 3) - 3rem);
+  //   margin-left: 3rem;
+  // }
+
+  // Grid
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+  // &-item {
+  //   position: relative;
+  //   z-index: 1;
+  //   transition: transform 0.25s linear;
+  //   &::after {
+  //     content: "";
+  //     @include absoluteFull();
+  //     @include bgc($third-color);
+  //     transition: transform 0.25s linear;
+  //     z-index: -1;
+  //   }
+  //   &:hover {
+  //     transform: translate(-1rem, -1rem);
+  //     .about-content {
+  //       opacity: 1;
+  //       visibility: visible;
+  //     }
+  //     &::after {
+  //       transform: translate(1rem, 1rem);
+  //     }
+  //   }
+  // }
+  &-image {
+    object-fit: cover;
+    @include size(100%);
+  }
+  &-content {
+    // opacity: 0;
+    // visibility: hidden;
+    // transition: all 0.25s linear;
+    // @include absoluteFull();
+    // @include flexBox(center, center, column);
+    // background: linear-gradient(
+    //   to bottom,
+    //   rgba($primary-color, 0.85),
+    //   rgba($secondary-color, 0.85)
+    // );
+    // z-index: 2;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  &-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  &-title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.4;
+    @include textClamp();
+  }
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    // Flexbox responsive about-list
+    // &-item {
+    //   width: 100%;
+    //   margin-bottom: 2.5rem;
+    // }
+
+    // FlexGrid reponsive about-list
+    &-list {
+      grid-auto-columns: 80%;
+      grid-auto-flow: column;
+      grid-template-columns: unset;
+      grid-column-gap: 2.5rem;
+      overflow-x: auto;
+      // fix lỗi transform: translate(1rem, 1rem); trên giao diện mobile
+      padding: 1rem;
+
+      // css scroll snap
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      @include hideScroll();
+    }
+    &-item {
+      scroll-snap-align: center;
+    }
+  }
+}
+@include hoverEffect(".about-item", ".about-content");

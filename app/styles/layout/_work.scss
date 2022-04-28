@@ -1,0 +1,120 @@
+.work {
+  padding-top: 10rem;
+  &-list {
+    @include flexBox();
+    height: 78rem;
+  }
+  &-column {
+    width: 25%;
+  }
+  &-image {
+    @include size(100%);
+    object-fit: cover;
+  }
+  &-item {
+    height: 50%;
+  }
+  &-item--full {
+    height: 100%;
+  }
+  &-content {
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  &-icon {
+    margin-bottom: 1.5rem;
+    @include size(3rem);
+  }
+  &-title {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    @include textClamp(1);
+  }
+  &-desc {
+    color: inherit;
+  }
+  @include maxWidth(1600px) {
+    &-list {
+      height: 60rem;
+    }
+  }
+  @include maxWidth(1279px) {
+    &-list {
+      flex-wrap: wrap;
+      height: auto;
+    }
+    &-column {
+      width: 50%;
+    }
+    &-item {
+      height: 42rem;
+    }
+    &-item--full {
+      height: 84rem;
+    }
+  }
+  @include maxWidth(1023px) {
+    &-item {
+      height: 36rem;
+    }
+    &-item--full {
+      height: 72rem;
+    }
+  }
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+    &-column {
+      width: 100%;
+    }
+    &-item {
+      height: auto;
+    }
+  }
+}
+
+@include hoverEffect(".work-item", ".work-content", "false");
+
+// Css Grid
+// .work-grid {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: 36rem, 36rem;
+//   grid-template-areas:
+//     "h1 h3 h5 h6"
+//     "h2 h4 h5 h7";
+// }
+// .work-item {
+//   height: 100% !important;
+//   &:first-child {
+//     grid-area: h1;
+//   }
+//   &:nth-child(2) {
+//     grid-area: h2;
+//   }
+//   &:nth-child(3) {
+//     grid-area: h3;
+//   }
+//   &:nth-child(4) {
+//     grid-area: h4;
+//   }
+//   &:nth-child(5) {
+//     grid-area: h5;
+//   }
+//   &:nth-child(6) {
+//     grid-area: h6;
+//   }
+//   &:last-child {
+//     grid-area: h7;
+//   }
+// }
+
+// @include maxWidth(767px) {
+//   .work {
+//     padding-top: 5rem;
+//     &-grid {
+//       display: block;
+//     }
+//   }
+// }

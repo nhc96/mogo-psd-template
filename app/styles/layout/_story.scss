@@ -1,0 +1,124 @@
+.story {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  &-list {
+    margin-top: 4.5rem;
+    @include flexBox(stretch, space-between);
+  }
+  &-item {
+    width: calc(33.333% - 2rem);
+  }
+  &-media {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  &-image {
+    object-fit: cover;
+    @include size(100%, 24rem);
+  }
+  &-date {
+    @include bgc($third-color);
+    padding: 1.5rem 2rem;
+    @include flexBox(center, center, column);
+    color: white;
+    position: absolute;
+    left: -1rem;
+    bottom: 1rem;
+    z-index: 2;
+    &-number {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    &-text {
+      color: inherit;
+    }
+  }
+  &-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+  &-desc {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $boder-color;
+    &-inner {
+      line-height: 1.6;
+    }
+  }
+  &-meta {
+    @include flexBox(center);
+    &-item {
+      color: $third-color;
+      margin-right: 2rem;
+    }
+    &-icon {
+      margin-right: 0.5rem;
+      font-size: 1.6rem;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding: 5rem 0;
+    &-image {
+      height: 14rem;
+    }
+    &-date {
+      padding: 1rem 1.5rem;
+    }
+    &-title {
+      font-size: 1.2rem;
+    }
+    &-desc {
+      &-inner {
+        font-size: 1.3rem;
+        @include textClamp(3);
+      }
+    }
+  }
+  @include maxWidth(767px) {
+    padding-bottom: 0;
+    &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 5rem;
+    }
+    &-image {
+      height: auto;
+    }
+    &-date {
+      left: -0.5rem;
+      bottom: 0.5rem;
+    }
+  }
+}
+
+.map {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, rgba(white, 0.75), rgba(white, 0.8)),
+    url("../images/img-map.png") no-repeat center / cover;
+  &-content {
+    @include flexBox(center, center, column);
+  }
+  &-icon {
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+  }
+  &-heading {
+    font-size: 2.4rem;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 2rem;
+    position: relative;
+    &::after {
+      content: "";
+      @include absoluteCenter("left");
+      bottom: 0;
+      @include size(6rem, 0.3rem);
+      @include bgc($primary-color);
+    }
+  }
+}

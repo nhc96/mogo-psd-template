@@ -1,0 +1,108 @@
+.quote {
+  @include bgc($gray-color);
+  padding: 7rem 0;
+  &-arrow {
+    font-size: 3rem;
+    color: $gray-dark-color;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+  &-item {
+    @include flexBox(center);
+    padding: 0 5.5rem;
+    outline: none;
+  }
+  &-image {
+    @include size(21rem);
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 2.5rem;
+  }
+  &-icon {
+    @include size(15rem);
+    @include flexBox(center, center);
+    border: 3px solid $third-color;
+    flex-shrink: 0;
+    margin-right: 5.5rem;
+    img {
+      object-fit: cover;
+    }
+  }
+  &-desc {
+    font-size: 2.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: $text-color;
+    font-family: $secondary-font;
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    @include textClamp(3);
+  }
+  &-author {
+    padding-left: 7rem;
+    font-size: 2.4rem;
+    font-family: $third-font;
+    position: relative;
+    &::before {
+      content: "";
+      @include absoluteCenter("top");
+      left: 0;
+      @include size(6rem, 0.3rem);
+      @include bgc($primary-color);
+    }
+  }
+
+  // Slick Slider
+  .slick-initialized .slick-slide {
+    display: flex;
+  }
+  .slick-arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 3rem;
+    color: $gray-dark-color;
+    padding: 1rem 2rem;
+    @include absoluteCenter("top");
+    cursor: pointer;
+    z-index: 10;
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+
+  @include maxWidth(767px) {
+    &-arrow {
+      display: none;
+    }
+    &-item {
+      flex-direction: column;
+      padding: 0;
+    }
+    &-image {
+      margin-right: 0;
+      @include size(18rem);
+    }
+    &-icon {
+      @include size(10rem);
+      margin-right: 0;
+      img {
+        max-width: 50%;
+      }
+    }
+    &-info {
+      margin-top: 3rem;
+    }
+    &-desc {
+      display: block;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+  }
+}

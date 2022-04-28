@@ -1,0 +1,39 @@
+section.story 
+  .container 
+    +blockBox({
+      caption: "Our stories",
+      title: "Latest blog"
+    })
+    ul.story-list 
+      +storyItem({
+        src: "./images/img-blog1.png",
+        dateNumber: "15",
+        dateText: "Jan",
+        title:  "Lorem ipsum dolor sit amet",
+        desc: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        views: "542",
+        comments: "17"
+      })
+      +storyItem({
+        src: "./images/img-blog2.png",
+        dateNumber: "15",
+        dateText: "Jan",
+        title:  "sed do eiusmod tempor",
+        desc: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        views: "992",
+        comments: "42"
+      })
+      +storyItem({
+        src: "./images/img-blog3.png",
+        dateNumber: "15",
+        dateText: "Jan",
+        title:  "incididunt ut labore et dolore",
+        desc: "Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        views: "1560",
+        comments: "98"
+      })
+section.map 
+  .container 
+    .map-content 
+      img.map-icon(src="../images/img-map-icon.png", alt="")
+      h2.map-heading Open Map

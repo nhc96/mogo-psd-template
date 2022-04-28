@@ -1,0 +1,214 @@
+.header {
+  min-height: 100rem;
+  background: linear-gradient(
+      to bottom,
+      rgba($primary-color, 0.85),
+      rgba($secondary-color, 0.85)
+    ),
+    url("../images/img-header-bg.jpg") no-repeat center / cover;
+  color: white;
+  &-top {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  &-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+  }
+  &-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  &-menu {
+    display: flex;
+  }
+  &-menu-link {
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.25s linear;
+  }
+  &-menu-icon {
+    color: white;
+  }
+  &-content {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 16rem;
+    max-width: 80rem;
+  }
+  &-content-caption {
+    font-family: $third-font;
+    font-size: 7.2rem;
+    margin-bottom: 3.5rem;
+  }
+  &-content-main {
+    font-size: 15rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 5rem;
+    margin-bottom: 5rem;
+    position: relative;
+    &::after {
+      content: "";
+      @include size(6rem, 0.3rem);
+      bottom: 0;
+      @include absoluteCenter();
+      background-color: white;
+    }
+  }
+  &-content-more {
+    display: inline-block;
+    padding: 1rem 3rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 0.3rem solid white;
+  }
+
+  &-bottom {
+    margin-top: 15.5rem;
+    padding-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    &-item {
+      border-top: 0.3rem solid white;
+      padding-top: 2.5rem;
+      width: calc(25% - 3rem);
+      margin-left: 3rem;
+      opacity: 0.6;
+      transition: all 0.25s linear;
+      position: relative;
+      cursor: pointer;
+      &::before {
+        content: "";
+        @include size(7rem, 0.3rem);
+        background-color: $primary-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.25s linear;
+      }
+    }
+    &-item:hover,
+    &-item.is-active {
+      opacity: 1;
+      &::before {
+        content: "";
+        opacity: 1;
+      }
+    }
+    &-number {
+      font-size: 2.4rem;
+      font-weight: bold;
+    }
+    &-text {
+      margin-left: 0.5rem;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+  }
+  @include minWidth(768px) {
+    &-menu-item:not(:first-child) {
+      margin-left: 5rem;
+    }
+    &-menu-link {
+      color: white;
+      display: inline-block;
+      padding-bottom: 1rem;
+      border-bottom: 4px solid transparent;
+    }
+    &-menu-link:hover {
+      color: $secondary-color;
+      border-bottom-color: $secondary-color;
+    }
+  }
+  @include maxWidth(1023px) {
+    min-height: unset;
+    .header-content {
+      padding-top: 10rem;
+    }
+    .header-content-main {
+      font-size: 10rem;
+    }
+    .header-bottom {
+      margin-top: 10.5rem;
+    }
+  }
+  @include maxWidth(767px) {
+    .header-bottom-text {
+      display: none;
+    }
+    .header-content {
+      padding-top: 5rem;
+    }
+    .header-content-caption {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .header-content-main {
+      font-size: 5rem;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+    }
+    .header-bottom {
+      margin-top: 5.5rem;
+    }
+    .header-bottom-item {
+      text-align: center;
+      padding-top: 1.5rem;
+    }
+    .header-bottom-item::before {
+      width: 35%;
+    }
+    .header-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: white;
+      width: 30rem;
+      display: block;
+      padding: 2rem 2.5rem;
+      z-index: 10;
+      transform: translateX(100%);
+      transition: transform 0.25s ease-in;
+    }
+    .header-menu.is-expand {
+      transform: translateX(0);
+    }
+    .header-menu-item {
+      margin-bottom: 1rem;
+    }
+    .header-menu-icon {
+      display: block;
+      color: $title-color;
+      padding: 1.5rem;
+      transition: all 0.25s linear;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    .header-menu-link {
+      color: $title-color;
+      width: 100%;
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: all 0.25s linear;
+      &:hover {
+        color: white;
+        background-color: $secondary-color;
+      }
+    }
+    // Toggle menu
+    .header-toggle {
+      display: block;
+      align-self: center;
+    }
+  }
+}

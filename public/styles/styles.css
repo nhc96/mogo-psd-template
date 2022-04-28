@@ -100,12 +100,18 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline; }
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
   .header-logo {
     font-size: 3rem;
     font-weight: bold;
@@ -246,7 +252,7 @@ button {
       right: 0;
       bottom: 0;
       background-color: white;
-      width: 30rem;
+      width: 25rem;
       display: block;
       padding: 2rem 2.5rem;
       z-index: 10;
@@ -255,7 +261,8 @@ button {
       -webkit-transition: -webkit-transform 0.25s ease-in;
       transition: -webkit-transform 0.25s ease-in;
       transition: transform 0.25s ease-in;
-      transition: transform 0.25s ease-in, -webkit-transform 0.25s ease-in; }
+      transition: transform 0.25s ease-in, -webkit-transform 0.25s ease-in;
+      z-index: 999; }
     .header .header-menu.is-expand {
       -webkit-transform: translateX(0);
       transform: translateX(0); }
@@ -1510,7 +1517,10 @@ button {
     font-style: italic;
     font-weight: 300;
     width: 100%;
-    line-height: normal; }
+    line-height: normal;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
   .footer-form-button {
     color: white;
     text-transform: uppercase;
@@ -1520,7 +1530,8 @@ button {
     border: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    border-radius: 0; }
 
 .footer-blog {
   display: -webkit-box;
